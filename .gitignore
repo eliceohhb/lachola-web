@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+.astro/
+
+# Build / salidas de producción
+dist/
+output/
+
+# Entornos virtuales Python (por si se mezcla con el resto de ia-personal)
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*~
+
+# Logs y temporales
+*.log
+npm-debug.log*
+.tmp/
