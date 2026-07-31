@@ -21,9 +21,12 @@
   --radius-lg: 24px;
   --radius-full: 999px;
 
-  --font-script: 'Great Vibes', cursive;
+  --font-script: 'Alex Brush', 'Great Vibes', cursive;
+  --font-script-alt: 'Great Vibes', cursive;
   --font-titulo: 'Playfair Display', serif;
   --font-cuerpo: 'Poppins', sans-serif;
+
+  --grad-titulo: linear-gradient(115deg, #B5285A 0%, #D4756A 45%, #D4A83B 100%);
 
   --sombra-card: 0 10px 30px rgba(132, 95, 80, 0.08);
   --sombra-card-hover: 0 16px 40px rgba(132, 95, 80, 0.14);
@@ -135,10 +138,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .ac--rosa { background: radial-gradient(circle, var(--rosa-acuarela) 0%, transparent 70%); }
 .ac--durazno { background: radial-gradient(circle, #F7D5B0 0%, transparent 70%); }
+.ac--dorado { background: radial-gradient(circle, #F2DCA8 0%, transparent 70%); }
 .ac--top-left { top: -120px; left: -100px; }
 .ac--top-right { top: -120px; right: -100px; }
 .ac--bottom-right { bottom: -140px; right: -120px; }
+.ac--mid-right { top: 40%; right: -80px; width: 260px; height: 260px; opacity: 0.4; }
 .ac--center { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 420px; height: 420px; opacity: 0.4; }
+/* Variante extra grande + más opaca para el hero */
+.ac--xl { width: 420px; height: 420px; opacity: 0.7; }
 
 /* =========================================================
    HEADER
@@ -226,20 +233,54 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   z-index: 1;
 }
+
+/* Etiqueta superior con líneas a los costados */
+.hero__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-cuerpo);
+  text-transform: uppercase;
+  letter-spacing: 0.38em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--rosa-vino);
+  margin-bottom: 1.2rem;
+}
+.hero__etiqueta-linea {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--rosa-vino);
+  opacity: 0.5;
+}
+
 .hero__titulo { line-height: 1.05; margin-bottom: 1.4rem; }
 .hero__titulo-1 {
   display: block;
   font-family: var(--font-titulo);
   font-weight: 700;
+  font-style: italic;
   color: var(--texto-oscuro);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  letter-spacing: 0.01em;
 }
 .hero__titulo-2 {
   display: block;
   font-family: var(--font-script);
-  color: var(--rosa-vino);
-  font-size: clamp(3.6rem, 7vw, 5.6rem);
-  margin-top: 0.2rem;
+  font-weight: 400;
+  font-size: clamp(4rem, 8.5vw, 7rem);
+  line-height: 1;
+  margin-top: 0.3rem;
+  /* Degradado rosa→durazno→dorado */
+  background: var(--grad-titulo);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* Sombra suave para profundidad */
+  filter: drop-shadow(0 2px 6px rgba(181, 40, 90, 0.15));
+  padding-bottom: 0.15em;
 }
 .hero__parrafo { font-size: 1.05rem; max-width: 420px; margin-bottom: 0.5rem; }
 
