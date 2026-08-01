@@ -68,17 +68,20 @@
 </head>
 <body>
 
+  <!-- Skip link para usuarios de teclado/lectores de pantalla -->
+  <a href="#hero" class="skip-link">Saltar al contenido</a>
+
   <!-- =========================================
        HEADER / NAVEGACIÓN
   ========================================== -->
   <header class="header" id="inicio">
     <div class="container header__inner">
-      <a href="#inicio" class="logo">
+      <a href="#inicio" class="logo" aria-label="La Chola, inicio de Pastelería Artesanal">
         <span class="logo__nombre">La Chola</span>
         <span class="logo__subtitulo">PASTELERÍA ARTESANAL</span>
       </a>
 
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" aria-label="Navegación principal">
         <a href="#inicio" class="nav__link is-active">Inicio</a>
         <a href="#charlottes" class="nav__link">Charlottes</a>
         <a href="#historia" class="nav__link">Sobre Nosotros</a>
@@ -87,12 +90,13 @@
       </nav>
 
       <a href="https://wa.me/56912345678?text=Hola%20La%20Chola%2C%20quiero%20hacer%20un%20pedido"
-         class="btn btn--primary header__cta" target="_blank" rel="noopener">
+         class="btn btn--primary header__cta" target="_blank" rel="noopener"
+         aria-label="Hacer pedido por WhatsApp (se abre en nueva pestaña)">
         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.3 8.3 0 1 1 7 4.1z"/></svg>
         Haz tu pedido
       </a>
 
-      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
     </div>
