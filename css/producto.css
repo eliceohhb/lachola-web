@@ -26,7 +26,7 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
 .producto {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 6.5rem 1.5rem 3rem;
+  padding: 7.5rem 1.5rem 3rem;  /* compensar header fixed (~70px) + breadcrumb fixed (~40px) */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
@@ -315,11 +315,13 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
 /* =========================================================
    RESPONSIVE
    ========================================================= */
+
+/* Tablet y abaixo: una sola columna de contenido */
 @media (max-width: 992px) {
   .producto {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding-top: 6rem;
+    padding: 6.5rem 1.5rem 3rem;
   }
   .producto__galeria { position: static; }
   .producto__portada { aspect-ratio: 4/3; max-width: 600px; margin-inline: 0; }
@@ -327,18 +329,89 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   .producto__info { max-width: none; }
 }
 
-@media (max-width: 560px) {
-  .producto { padding: 5.5rem 1rem 2.5rem; gap: 2rem; }
-  .producto__portada { aspect-ratio: 3/4; }
-  .producto__meta { grid-template-columns: 1fr; gap: 0.8rem; }
-  .producto__meta-item { padding: 0.3rem 0; }
-  .producto__compra { flex-direction: column; align-items: stretch; }
-  .producto__cta { justify-content: center; }
+/* Móvil/tablet pequeno (hasta 768px) */
+@media (max-width: 768px) {
+  /* El breadcrumb fijo se superpondria al abrir el menu hamburger.
+     Lo pasamos a static dentro del flujo para evitar taps atados. */
+  .breadcrumb {
+    position: static;
+    background: var(--fondo-secundario);
+    border-top: 1px solid var(--borde-suave);
+  }
+
+  .producto {
+    padding: 2rem 1.2rem 2.5rem;
+    gap: 2rem;
+  }
+  .producto__titulo { font-size: clamp(2rem, 7vw, 2.6rem); }
+  .producto__precio-cifra { font-size: 1.9rem; }
+
+  /* Meta en 3 columnas se aprieta en tablet: pasamos a una sola */
+  .producto__meta {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1rem 0;
+  }
+  .producto__meta-item { padding: 0.2rem 0; }
+
+  /* Precio y CTA apilados, ocupando todo el ancho */
+  .producto__compra {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .producto__precio { justify-content: center; }
+  .producto__cta { justify-content: center; padding: 0.95rem 1.4rem; }
+
+  /* Elaboracion: 2 columnas en tablet ~700px, 1 en móvil */
+  .elaboracion { padding-top: 3.5rem; padding-bottom: 3.5rem; }
   .elaboracion__pasos { grid-template-columns: 1fr; gap: 1.2rem; }
-  .breadcrumb { font-size: 0.74rem; }
+  .elaboracion__paso { padding: 1.6rem 1.2rem; }
+  .elaboracion__num { width: 54px; height: 54px; font-size: 1.2rem; }
+  .elaboracion__paso-titulo { font-size: 1.1rem; }
+  .elaboracion__paso-texto { font-size: 0.88rem; }
 }
 
+/* Móvil angosto */
+@media (max-width: 480px) {
+  .producto { padding: 1.5rem 1rem 2rem; gap: 1.8rem; }
+  .producto__portada { aspect-ratio: 3/4; }
+  .producto__titulo { font-size: 2.1rem; }
+  .producto__descripcion { font-size: 0.98rem; }
+  .producto__thumbs { gap: 0.55rem; }
+  .producto__badge {
+    top: 0.7rem; left: 0.7rem;
+    font-size: 0.66rem;
+    padding: 0.32rem 0.7rem;
+  }
+  .breadcrumb { font-size: 0.74rem; padding: 0.6rem 0; }
+  .breadcrumb .container { gap: 0.4rem; }
+  .volver-seccion { padding: 2.5rem 0; }
+  /* Lightbox con menos padding para que la imagen se vea mas grande */
+  .producto__lightbox { padding: 1rem; }
+  .producto__lightbox-cerrar { top: 0.6rem; right: 0.8rem; width: 40px; height: 40px; font-size: 1.5rem; }
+}
+
+/* Pantallas muy pequeñas (iPhone SE / Androids compactos) */
 @media (max-width: 360px) {
-  .producto__titulo { font-size: 2rem; }
-  .producto__thumbs { gap: 0.5rem; }
+  .producto__titulo { font-size: 1.85rem; }
+  .producto__precio-cifra { font-size: 1.7rem; }
+  .producto__thumbs { grid-template-columns: repeat(4, 1fr); gap: 0.45rem; }
+  .producto__thumb { border-width: 2px; }
+  .elaboracion__num { width: 48px; height: 48px; font-size: 1.1rem; }
+}
+
+/* Touch / sin hover: eliminar transform de hover que da saltos en táctil */
+@media (hover: none) {
+  .producto__thumb:hover { transform: none; }
+  .producto__portada:hover { transform: none; }
+  .elaboracion__paso:hover { transform: none; box-shadow: var(--sombra-card); }
+}
+
+/* Respetar usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .producto__portada img { transition: none; }
+  .producto__portada img.is-cambiando { opacity: 1; }
+  .producto__lightbox { animation: none; }
+  .elaboracion__paso { transition: none; }
 }
