@@ -1,0 +1,344 @@
+/* =========================================================
+   LA CHOLA · Página de producto individual
+   ========================================================= */
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+  position: fixed;
+  top: 70px;
+  left: 0; right: 0;
+  z-index: 50;
+  background: rgba(251, 240, 228, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borde-suave);
+  font-size: 0.82rem;
+  padding: 0.7rem 0;
+}
+.breadcrumb .container { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.breadcrumb a { color: var(--rosa-vino); transition: color var(--transicion); }
+.breadcrumb a:hover { color: var(--rosa-vino-hover); }
+.breadcrumb span[aria-hidden] { color: var(--texto-parrafo); opacity: 0.5; }
+.breadcrumb__actual { color: var(--texto-oscuro); font-weight: 500; }
+
+/* ---------- Layout de la página de producto ---------- */
+body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fondo-principal) 380px); }
+
+.producto {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Galeria (izquierda) ---------- */
+.producto__galeria { position: sticky; top: 140px; }
+.producto__portada {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-card-hover);
+  aspect-ratio: 3/4;
+  background: var(--fondo-secundario);
+  margin-bottom: 1rem;
+}
+.producto__portada img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease; }
+.producto__portada img.is-cambiando { opacity: 0; }
+
+.producto__badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--rosa-vino);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(181, 40, 90, 0.3);
+}
+
+.producto__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+.producto__thumb {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: var(--fondo-secundario);
+  transition: border-color var(--transicion), transform var(--transicion);
+}
+.producto__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.producto__thumb:hover { transform: translateY(-2px); }
+.producto__thumb.is-active { border-color: var(--rosa-vino); }
+.producto__thumb:focus-visible {
+  outline: 3px solid var(--rosa-vino);
+  outline-offset: 2px;
+}
+
+/* ---------- Info (derecha) ---------- */
+.producto__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-cuerpo);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--rosa-vino);
+  margin-bottom: 0.9rem;
+}
+.producto__titulo {
+  font-family: var(--font-titulo);
+  font-weight: 700;
+  color: var(--texto-oscuro);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.producto__titulo .script-acento { font-size: 1.05em; }
+
+.producto__estrellas {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--dorado);
+  margin-bottom: 1.5rem;
+}
+.producto__estrellas svg { width: 18px; height: 18px; }
+.producto__estrellas-texto {
+  color: var(--texto-parrafo);
+  font-size: 0.85rem;
+  margin-left: 0.6rem;
+}
+
+.producto__descripcion {
+  color: var(--texto-parrafo);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 1.8rem;
+}
+.producto__descripcion strong { color: var(--rosa-vino); font-weight: 600; }
+
+/* ---------- Meta (anticipación / porciones / tamaño) ---------- */
+.producto__meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--borde-suave);
+  border-bottom: 1px solid var(--borde-suave);
+}
+.producto__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.producto__meta-item .icon { color: var(--rosa-vino); }
+.producto__meta-item > div { display: flex; flex-direction: column; line-height: 1.3; }
+.producto__meta-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-parrafo);
+  opacity: 0.75;
+}
+.producto__meta-valor {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+}
+
+/* ---------- Compra (precio + CTA) ---------- */
+.producto__compra {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.producto__precio {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.producto__precio-cifra {
+  font-family: var(--font-titulo);
+  font-weight: 700;
+  font-size: 2.1rem;
+  color: var(--rosa-vino);
+}
+.producto__precio-moneda {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--texto-parrafo);
+  font-weight: 500;
+}
+.producto__cta { padding: 0.95rem 1.8rem; font-size: 0.98rem; }
+
+/* ---------- Extras (checklist) ---------- */
+.producto__extras {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.producto__extra {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--texto-parrafo);
+}
+.producto__extra .icon {
+  width: 22px; height: 22px;
+  color: var(--dorado);
+  flex-shrink: 0;
+}
+
+/* ---------- Lightbox ---------- */
+.producto__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(20, 15, 10, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+  animation: lightbox-in 0.25s ease;
+}
+.producto__lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  object-fit: contain;
+}
+.producto__lightbox-cerrar {
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transicion);
+}
+.producto__lightbox-cerrar:hover { background: var(--rosa-vino); }
+@keyframes lightbox-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---------- Sección "¿Cómo se hace?" ---------- */
+.elaboracion { background: var(--fondo-secundario); padding-top: 5rem; padding-bottom: 5rem; }
+.elaboracion__pasos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.elaboracion__paso {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--blanco);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--sombra-card);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+.elaboracion__paso:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-card-hover);
+}
+.elaboracion__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rosa-vino) 0%, #D4756A 100%);
+  color: #fff;
+  font-family: var(--font-titulo);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 16px rgba(181, 40, 90, 0.25);
+}
+.elaboracion__paso-titulo {
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  color: var(--texto-oscuro);
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+.elaboracion__paso-texto {
+  font-size: 0.92rem;
+  color: var(--texto-parrafo);
+  line-height: 1.6;
+}
+
+/* ---------- Sección "Volver" ---------- */
+.volver-seccion { padding: 3rem 0; background: var(--fondo-secundario); }
+.volver { text-align: center; }
+.btn--ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  border: 1.5px solid var(--rosa-vino);
+  border-radius: var(--radius-full);
+  color: var(--rosa-vino);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background var(--transicion), color var(--transicion);
+}
+.btn--ghost:hover { background: var(--rosa-vino); color: #fff; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 992px) {
+  .producto {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 6rem;
+  }
+  .producto__galeria { position: static; }
+  .producto__portada { aspect-ratio: 4/3; max-width: 600px; margin-inline: 0; }
+  .producto__thumbs { max-width: 600px; }
+  .producto__info { max-width: none; }
+}
+
+@media (max-width: 560px) {
+  .producto { padding: 5.5rem 1rem 2.5rem; gap: 2rem; }
+  .producto__portada { aspect-ratio: 3/4; }
+  .producto__meta { grid-template-columns: 1fr; gap: 0.8rem; }
+  .producto__meta-item { padding: 0.3rem 0; }
+  .producto__compra { flex-direction: column; align-items: stretch; }
+  .producto__cta { justify-content: center; }
+  .elaboracion__pasos { grid-template-columns: 1fr; gap: 1.2rem; }
+  .breadcrumb { font-size: 0.74rem; }
+}
+
+@media (max-width: 360px) {
+  .producto__titulo { font-size: 2rem; }
+  .producto__thumbs { gap: 0.5rem; }
+}
