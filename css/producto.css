@@ -1,32 +1,38 @@
 /* =========================================================
    LA CHOLA · Página de producto individual
+   Sistema visual: boutique premium / editorial
    ========================================================= */
 
 /* ---------- Breadcrumb ---------- */
 .breadcrumb {
   position: fixed;
-  top: 70px;
+  top: 68px;
   left: 0; right: 0;
   z-index: 50;
-  background: rgba(251, 240, 228, 0.85);
+  background: rgba(255, 249, 245, 0.9);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--borde-suave);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-soft);
   font-size: 0.82rem;
   padding: 0.7rem 0;
 }
 .breadcrumb .container { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.breadcrumb a { color: var(--rosa-vino); transition: color var(--transicion); }
+.breadcrumb a { color: var(--color-rose); transition: color var(--transition); font-weight: 500; }
 .breadcrumb a:hover { color: var(--rosa-vino-hover); }
-.breadcrumb span[aria-hidden] { color: var(--texto-parrafo); opacity: 0.5; }
-.breadcrumb__actual { color: var(--texto-oscuro); font-weight: 500; }
+.breadcrumb span[aria-hidden] { color: var(--text-secondary); opacity: 0.5; }
+.breadcrumb__actual { color: var(--color-wine); font-weight: 600; }
 
 /* ---------- Layout de la página de producto ---------- */
-body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fondo-principal) 380px); }
+body {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(243, 196, 207, 0.4), transparent 40%),
+    var(--color-cream);
+}
 
 .producto {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 7.5rem 1.5rem 3rem;  /* compensar header fixed (~70px) + breadcrumb fixed (~40px) */
+  padding: 7.5rem 1.5rem 3rem;  /* compensar header fixed + breadcrumb fixed */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
@@ -41,9 +47,10 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--sombra-card-hover);
+  box-shadow: var(--shadow-card-hover);
+  border: 1px solid var(--border-subtle);
   aspect-ratio: 3/4;
-  background: var(--fondo-secundario);
+  background: var(--color-blush);
   margin-bottom: 1rem;
 }
 .producto__portada img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease; }
@@ -52,15 +59,15 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
 .producto__badge {
   position: absolute;
   top: 1rem; left: 1rem;
-  background: var(--rosa-vino);
+  background: var(--color-rose);
   color: #fff;
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.4rem 0.9rem;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 12px rgba(181, 40, 90, 0.3);
+  box-shadow: 0 6px 16px rgba(216, 92, 120, 0.3);
 }
 
 .producto__thumbs {
@@ -74,14 +81,14 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   aspect-ratio: 1/1;
   cursor: pointer;
   border: 2px solid transparent;
-  background: var(--fondo-secundario);
-  transition: border-color var(--transicion), transform var(--transicion);
+  background: var(--color-blush);
+  transition: border-color var(--transition), transform var(--transition);
 }
 .producto__thumb img { width: 100%; height: 100%; object-fit: cover; }
 .producto__thumb:hover { transform: translateY(-2px); }
-.producto__thumb.is-active { border-color: var(--rosa-vino); }
+.producto__thumb.is-active { border-color: var(--color-rose); }
 .producto__thumb:focus-visible {
-  outline: 3px solid var(--rosa-vino);
+  outline: 3px solid var(--color-rose);
   outline-offset: 2px;
 }
 
@@ -90,45 +97,45 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  font-family: var(--font-cuerpo);
+  font-family: var(--font-body);
   text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 0.74rem;
-  font-weight: 500;
-  color: var(--rosa-vino);
+  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-rose);
   margin-bottom: 0.9rem;
 }
 .producto__titulo {
-  font-family: var(--font-titulo);
-  font-weight: 700;
-  color: var(--texto-oscuro);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--color-wine);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  line-height: 1.05;
   margin-bottom: 1rem;
 }
-.producto__titulo .script-acento { font-size: 1.05em; }
+.producto__titulo .script-acento { font-style: italic; font-weight: 500; font-size: 1.02em; }
 
 .producto__estrellas {
   display: flex;
   align-items: center;
   gap: 3px;
-  color: var(--dorado);
+  color: var(--color-gold);
   margin-bottom: 1.5rem;
 }
 .producto__estrellas svg { width: 18px; height: 18px; }
 .producto__estrellas-texto {
-  color: var(--texto-parrafo);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   margin-left: 0.6rem;
 }
 
 .producto__descripcion {
-  color: var(--texto-parrafo);
+  color: var(--text-secondary);
   font-size: 1.02rem;
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 1.8rem;
 }
-.producto__descripcion strong { color: var(--rosa-vino); font-weight: 600; }
+.producto__descripcion strong { color: var(--color-rose); font-weight: 600; }
 
 /* ---------- Meta (anticipación / porciones / tamaño) ---------- */
 .producto__meta {
@@ -137,27 +144,27 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   gap: 0.8rem;
   margin-bottom: 2rem;
   padding: 1.2rem 0;
-  border-top: 1px solid var(--borde-suave);
-  border-bottom: 1px solid var(--borde-suave);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
 }
 .producto__meta-item {
   display: flex;
   align-items: center;
   gap: 0.7rem;
 }
-.producto__meta-item .icon { color: var(--rosa-vino); }
+.producto__meta-item .icon { color: var(--color-rose); }
 .producto__meta-item > div { display: flex; flex-direction: column; line-height: 1.3; }
 .producto__meta-label {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--texto-parrafo);
+  color: var(--text-secondary);
   opacity: 0.75;
 }
 .producto__meta-valor {
   font-size: 0.92rem;
   font-weight: 600;
-  color: var(--texto-oscuro);
+  color: var(--color-wine);
 }
 
 /* ---------- Compra (precio + CTA) ---------- */
@@ -174,19 +181,19 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   gap: 0.4rem;
 }
 .producto__precio-cifra {
-  font-family: var(--font-titulo);
-  font-weight: 700;
-  font-size: 2.1rem;
-  color: var(--rosa-vino);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 2.3rem;
+  color: var(--color-rose);
 }
 .producto__precio-moneda {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--texto-parrafo);
+  color: var(--text-secondary);
   font-weight: 500;
 }
-.producto__cta { padding: 0.95rem 1.8rem; font-size: 0.98rem; }
+.producto__cta { padding: 0.95rem 1.9rem; font-size: 0.95rem; }
 
 /* ---------- Extras (checklist) ---------- */
 .producto__extras {
@@ -200,11 +207,11 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   align-items: center;
   gap: 0.7rem;
   font-size: 0.9rem;
-  color: var(--texto-parrafo);
+  color: var(--text-secondary);
 }
 .producto__extra .icon {
   width: 22px; height: 22px;
-  color: var(--dorado);
+  color: var(--color-gold);
   flex-shrink: 0;
 }
 
@@ -213,7 +220,7 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(20, 15, 10, 0.92);
+  background: rgba(42, 26, 26, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,7 +232,7 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   max-width: 90vw;
   max-height: 90vh;
   border-radius: var(--radius-md);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   object-fit: contain;
 }
 .producto__lightbox-cerrar {
@@ -233,7 +240,7 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   top: 1rem; right: 1.5rem;
   width: 48px; height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.14);
   color: #fff;
   font-size: 1.8rem;
   line-height: 1;
@@ -241,82 +248,22 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background var(--transicion);
+  transition: background var(--transition);
 }
-.producto__lightbox-cerrar:hover { background: var(--rosa-vino); }
+.producto__lightbox-cerrar:hover { background: var(--color-rose); }
 @keyframes lightbox-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-/* ---------- Sección "¿Cómo se hace?" ---------- */
-.elaboracion { background: var(--fondo-secundario); padding-top: 5rem; padding-bottom: 5rem; }
-.elaboracion__pasos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-.elaboracion__paso {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: var(--blanco);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--sombra-card);
-  transition: transform var(--transicion), box-shadow var(--transicion);
-}
-.elaboracion__paso:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--sombra-card-hover);
-}
-.elaboracion__num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--rosa-vino) 0%, #D4756A 100%);
-  color: #fff;
-  font-family: var(--font-titulo);
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 6px 16px rgba(181, 40, 90, 0.25);
-}
-.elaboracion__paso-titulo {
-  font-family: var(--font-titulo);
-  font-weight: 600;
-  color: var(--texto-oscuro);
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
-}
-.elaboracion__paso-texto {
-  font-size: 0.92rem;
-  color: var(--texto-parrafo);
-  line-height: 1.6;
-}
-
 /* ---------- Sección "Volver" ---------- */
-.volver-seccion { padding: 3rem 0; background: var(--fondo-secundario); }
+.volver-seccion { padding: 3.5rem 0; background: var(--color-cream); }
 .volver { text-align: center; }
-.btn--ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.8rem;
-  border: 1.5px solid var(--rosa-vino);
-  border-radius: var(--radius-full);
-  color: var(--rosa-vino);
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: background var(--transicion), color var(--transicion);
-}
-.btn--ghost:hover { background: var(--rosa-vino); color: #fff; }
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 
-/* Tablet y abaixo: una sola columna de contenido */
 @media (max-width: 992px) {
   .producto {
     grid-template-columns: 1fr;
@@ -329,24 +276,21 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   .producto__info { max-width: none; }
 }
 
-/* Móvil/tablet pequeno (hasta 768px) */
+/* Móvil/tablet pequeño (hasta 768px) */
 @media (max-width: 768px) {
-  /* El breadcrumb fijo se superpondria al abrir el menu hamburger.
-     Lo pasamos a static dentro del flujo para evitar taps atados. */
   .breadcrumb {
     position: static;
-    background: var(--fondo-secundario);
-    border-top: 1px solid var(--borde-suave);
+    background: var(--color-blush);
+    border-top: 1px solid var(--border-soft);
   }
 
   .producto {
     padding: 2rem 1.2rem 2.5rem;
     gap: 2rem;
   }
-  .producto__titulo { font-size: clamp(2rem, 7vw, 2.6rem); }
-  .producto__precio-cifra { font-size: 1.9rem; }
+  .producto__titulo { font-size: clamp(2rem, 7vw, 2.7rem); }
+  .producto__precio-cifra { font-size: 2rem; }
 
-  /* Meta en 3 columnas se aprieta en tablet: pasamos a una sola */
   .producto__meta {
     grid-template-columns: 1fr;
     gap: 0.9rem;
@@ -354,7 +298,6 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   }
   .producto__meta-item { padding: 0.2rem 0; }
 
-  /* Precio y CTA apilados, ocupando todo el ancho */
   .producto__compra {
     flex-direction: column;
     align-items: stretch;
@@ -362,14 +305,6 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   }
   .producto__precio { justify-content: center; }
   .producto__cta { justify-content: center; padding: 0.95rem 1.4rem; }
-
-  /* Elaboracion: 2 columnas en tablet ~700px, 1 en móvil */
-  .elaboracion { padding-top: 3.5rem; padding-bottom: 3.5rem; }
-  .elaboracion__pasos { grid-template-columns: 1fr; gap: 1.2rem; }
-  .elaboracion__paso { padding: 1.6rem 1.2rem; }
-  .elaboracion__num { width: 54px; height: 54px; font-size: 1.2rem; }
-  .elaboracion__paso-titulo { font-size: 1.1rem; }
-  .elaboracion__paso-texto { font-size: 0.88rem; }
 }
 
 /* Móvil angosto */
@@ -387,25 +322,20 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   .breadcrumb { font-size: 0.74rem; padding: 0.6rem 0; }
   .breadcrumb .container { gap: 0.4rem; }
   .volver-seccion { padding: 2.5rem 0; }
-  /* Lightbox con menos padding para que la imagen se vea mas grande */
   .producto__lightbox { padding: 1rem; }
   .producto__lightbox-cerrar { top: 0.6rem; right: 0.8rem; width: 40px; height: 40px; font-size: 1.5rem; }
 }
 
-/* Pantallas muy pequeñas (iPhone SE / Androids compactos) */
 @media (max-width: 360px) {
-  .producto__titulo { font-size: 1.85rem; }
-  .producto__precio-cifra { font-size: 1.7rem; }
+  .producto__titulo { font-size: 1.9rem; }
+  .producto__precio-cifra { font-size: 1.8rem; }
   .producto__thumbs { grid-template-columns: repeat(4, 1fr); gap: 0.45rem; }
-  .producto__thumb { border-width: 2px; }
-  .elaboracion__num { width: 48px; height: 48px; font-size: 1.1rem; }
 }
 
-/* Touch / sin hover: eliminar transform de hover que da saltos en táctil */
+/* Touch / sin hover */
 @media (hover: none) {
   .producto__thumb:hover { transform: none; }
   .producto__portada:hover { transform: none; }
-  .elaboracion__paso:hover { transform: none; box-shadow: var(--sombra-card); }
 }
 
 /* Respetar usuarios que prefieren menos movimiento */
@@ -413,5 +343,4 @@ body { background: linear-gradient(180deg, var(--fondo-secundario) 0%, var(--fon
   .producto__portada img { transition: none; }
   .producto__portada img.is-cambiando { opacity: 1; }
   .producto__lightbox { animation: none; }
-  .elaboracion__paso { transition: none; }
 }

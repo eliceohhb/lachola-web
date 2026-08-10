@@ -1,9 +1,23 @@
 /* =========================================================
    LA CHOLA · main.js
-   Menú móvil, carrusel de testimonios y nav activa por scroll
+   Menú móvil, carrusel de testimonios, nav activa por scroll,
+   header scrolled y revelado de secciones al hacer scroll
    ========================================================= */
 (function () {
   'use strict';
+
+  /* Activa la clase 'js' para animaciones progresivas (si JS falla, todo queda visible) */
+  document.documentElement.classList.add('js');
+
+  /* ---------- Header con sombra al hacer scroll ---------- */
+  const header = document.querySelector('.header');
+  if (header) {
+    const onHeaderScroll = function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    };
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+  }
 
   /* ---------- Menú hamburguesa ---------- */
   const navToggle = document.getElementById('navToggle');
@@ -86,5 +100,27 @@
   const yearEl = document.querySelector('.footer__bottom p');
   if (yearEl && yearEl.textContent.includes('2024')) {
     yearEl.innerHTML = yearEl.innerHTML.replace('2024', String(new Date().getFullYear()));
+  }
+
+  /* ---------- Revelar secciones al hacer scroll (sutil) ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (revealEls.length) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    } else {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(function (el) { observer.observe(el); });
+    }
   }
 })();
