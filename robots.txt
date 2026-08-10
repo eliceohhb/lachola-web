@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lacholaweb.ferticalc-app.workers.dev/sitemap.xml
+Sitemap: https://lachola-web-app.lachola.workers.dev/sitemap.xml

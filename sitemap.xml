@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lacholaweb.ferticalc-app.workers.dev/</loc>
+    <loc>https://lachola-web-app.lachola.workers.dev/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://lacholaweb.ferticalc-app.workers.dev/productos/frutilla.html</loc>
+    <loc>https://lachola-web-app.lachola.workers.dev/productos/frutilla.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lacholaweb.ferticalc-app.workers.dev/productos/frutos-rojos.html</loc>
+    <loc>https://lachola-web-app.lachola.workers.dev/productos/frutos-rojos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lacholaweb.ferticalc-app.workers.dev/productos/durazno.html</loc>
+    <loc>https://lachola-web-app.lachola.workers.dev/productos/durazno.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lacholaweb.ferticalc-app.workers.dev/productos/chocolate.html</loc>
+    <loc>https://lachola-web-app.lachola.workers.dev/productos/chocolate.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
