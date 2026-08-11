@@ -102,6 +102,71 @@
     yearEl.innerHTML = yearEl.innerHTML.replace('2024', String(new Date().getFullYear()));
   }
 
+  /* ---------- Clic en el logo / "Inicio": subir suave al tope ---------- */
+  document.querySelectorAll('.logo, a[href="#inicio"], .nav__link[href="#inicio"]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      if (this.getAttribute('href') === '#inicio') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ---------- Flechas de navegación rápida (subir / bajar sección) ---------- */
+  const scrollUpBtn = document.getElementById('scrollUp');
+  const scrollDownBtn = document.getElementById('scrollDown');
+
+  if (scrollUpBtn && scrollDownBtn) {
+    const targets = ['charlottes', 'beneficios', 'historia', 'testimonios', 'galeria', 'pedido', 'footer']
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    const offsetTop = function (el) { return el.getBoundingClientRect().top + window.scrollY; };
+
+    const indiceActual = function () {
+      const top = window.scrollY + 130;
+      let idx = -1;
+      targets.forEach(function (el, i) {
+        if (top >= offsetTop(el)) idx = i;
+      });
+      return idx;
+    };
+
+    const reiniciarBotones = function () {
+      const idx = indiceActual();
+      const docH = document.documentElement.scrollHeight;
+      const viewH = window.innerHeight;
+      const nearTop = window.scrollY < 120;
+      const nearBottom = window.scrollY + viewH > docH - 120;
+
+      scrollUpBtn.classList.toggle('is-visible', !nearTop);
+      scrollDownBtn.classList.toggle('is-visible', !nearBottom);
+
+      scrollUpBtn.classList.toggle('is-disabled', idx <= 0);
+      scrollDownBtn.classList.toggle('is-disabled', idx >= targets.length - 1);
+    };
+
+    scrollUpBtn.addEventListener('click', function () {
+      const idx = indiceActual();
+      const dest = idx <= 0
+        ? 0
+        : offsetTop(targets[idx - 1]) - 100;
+      window.scrollTo({ top: dest, behavior: 'smooth' });
+    });
+
+    scrollDownBtn.addEventListener('click', function () {
+      const idx = indiceActual();
+      const dest = idx >= targets.length - 1
+        ? document.documentElement.scrollHeight
+        : offsetTop(targets[idx + 1]) - 100;
+      window.scrollTo({ top: dest, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', reiniciarBotones, { passive: true });
+    window.addEventListener('resize', reiniciarBotones, { passive: true });
+    reiniciarBotones();
+  }
+
   /* ---------- Lightbox de la galería de sabores ---------- */
   const galeriaItems = document.querySelectorAll('.galeria__item');
   const lightbox = document.getElementById('galeriaLightbox');

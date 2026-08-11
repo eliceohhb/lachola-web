@@ -66,7 +66,8 @@
   <!-- Tipografías: Cormorant Garamond (títulos) + Manrope (UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
@@ -151,30 +152,30 @@
         <!-- Columna A: scroll vertical hacia ARRIBA -->
         <div class="hero__col hero__col--up">
           <div class="hero__track">
-            <figure class="hero__img"><img src="assets/images/charlotte-frutos-rojos.webp" alt="Charlotte de frutos rojos con moras y arándanos" loading="eager" /></figure>
-            <figure class="hero__img"><img src="assets/images/charlotte-frutilla.webp" alt="Charlotte de frutillas enteras" loading="lazy" /></figure>
-            <figure class="hero__img"><img src="assets/images/charlotte-chocolate.webp" alt="Charlotte de chocolate con virutas" loading="lazy" /></figure>
-            <figure class="hero__img"><img src="assets/images/charlotte-durazno.webp" alt="Charlotte de durazno con trozos de fruta" loading="lazy" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-frutos-rojos.webp" alt="Charlotte de frutos rojos con moras y arándanos" loading="eager" fetchpriority="high" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-frutilla.webp" alt="Charlotte de frutillas enteras" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-chocolate.webp" alt="Charlotte de chocolate con virutas" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-durazno.webp" alt="Charlotte de durazno con trozos de fruta" loading="lazy" decoding="async" /></figure>
             <!-- duplicado para loop infinito seamless -->
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutos-rojos.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutilla.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-chocolate.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-durazno.webp" alt="" loading="lazy" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutos-rojos.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutilla.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-chocolate.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-durazno.webp" alt="" loading="lazy" decoding="async" /></figure>
           </div>
         </div>
 
         <!-- Columna B: scroll vertical hacia ABAJO -->
         <div class="hero__col hero__col--down">
           <div class="hero__track">
-            <figure class="hero__img"><img src="assets/images/charlotte-durazno.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img"><img src="assets/images/charlotte-chocolate.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img"><img src="assets/images/charlotte-frutilla.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img"><img src="assets/images/charlotte-frutos-rojos.webp" alt="" loading="lazy" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-durazno.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-chocolate.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-frutilla.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img"><img src="assets/images/charlotte-frutos-rojos.webp" alt="" loading="lazy" decoding="async" /></figure>
             <!-- duplicado para loop infinito seamless -->
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-durazno.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-chocolate.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutilla.webp" alt="" loading="lazy" /></figure>
-            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutos-rojos.webp" alt="" loading="lazy" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-durazno.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-chocolate.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutilla.webp" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="hero__img" aria-hidden="true"><img src="assets/images/charlotte-frutos-rojos.webp" alt="" loading="lazy" decoding="async" /></figure>
           </div>
         </div>
       </div>
@@ -202,7 +203,7 @@
         <article class="card reveal">
           <a href="productos/frutilla.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Frutilla">
             <div class="card__img">
-              <img src="assets/images/charlotte-frutilla-catalogo.webp" alt="Charlotte de Frutilla" loading="lazy" />
+              <img src="assets/images/charlotte-frutilla-catalogo.webp" alt="Charlotte de Frutilla" loading="lazy" decoding="async" />
             </div>
           </a>
           <div class="card__cuerpo">
@@ -221,7 +222,7 @@
         <article class="card reveal reveal-delay-1">
           <a href="productos/chocolate.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Chocolate">
             <div class="card__img">
-              <img src="assets/images/charlotte-chocolate-catalogo.webp" alt="Charlotte de Chocolate" loading="lazy" />
+              <img src="assets/images/charlotte-chocolate-catalogo.webp" alt="Charlotte de Chocolate" loading="lazy" decoding="async" />
             </div>
           </a>
           <div class="card__cuerpo">
@@ -240,7 +241,7 @@
         <article class="card reveal reveal-delay-2">
           <a href="productos/frutos-rojos.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Frutos Rojos">
             <div class="card__img">
-              <img src="assets/images/charlotte-frutos-rojos-catalogo.webp" alt="Charlotte de Frutos Rojos" loading="lazy" />
+              <img src="assets/images/charlotte-frutos-rojos-catalogo.webp" alt="Charlotte de Frutos Rojos" loading="lazy" decoding="async" />
             </div>
           </a>
           <div class="card__cuerpo">
@@ -259,7 +260,7 @@
         <article class="card reveal reveal-delay-3">
           <a href="productos/durazno.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Durazno">
             <div class="card__img">
-              <img src="assets/images/charlotte-durazno-catalogo.webp" alt="Charlotte de Durazno" loading="lazy" />
+              <img src="assets/images/charlotte-durazno-catalogo.webp" alt="Charlotte de Durazno" loading="lazy" decoding="async" />
             </div>
           </a>
           <div class="card__cuerpo">
@@ -331,7 +332,7 @@
   <section class="seccion historia" id="historia">
     <div class="container historia__inner">
       <figure class="historia__img reveal">
-        <img src="assets/images/historia-cocina.webp" alt="Charlotte de chocolate en ambiente cálido de cocina artesanal" loading="lazy" />
+        <img src="assets/images/historia-cocina.webp" alt="Charlotte de chocolate en ambiente cálido de cocina artesanal" loading="lazy" decoding="async" />
       </figure>
       <div class="historia__texto reveal reveal-delay-1">
         <span class="etiqueta-script etiqueta-script--upper">Nuestra historia</span>
@@ -428,10 +429,10 @@
         <h2 class="seccion__titulo">Galería de Sabores</h2>
       </header>
       <div class="galeria__grid">
-        <figure class="galeria__item reveal"><img src="assets/images/galeria-mesa.webp" alt="Charlotte de mango y coco, tonos suaves amarillos" loading="lazy" /></figure>
-        <figure class="galeria__item reveal reveal-delay-1"><img src="assets/images/galeria-maracuya.webp" alt="Charlotte de maracuyá con chocolate blanco" loading="lazy" /></figure>
-        <figure class="galeria__item reveal reveal-delay-2"><img src="assets/images/galeria-higos.webp" alt="Charlotte de mascarpone e higos" loading="lazy" /></figure>
-        <figure class="galeria__item reveal reveal-delay-3"><img src="assets/images/galeria-pera.webp" alt="Charlotte de pera y vainilla" loading="lazy" /></figure>
+        <figure class="galeria__item reveal"><img src="assets/images/galeria-mesa.webp" alt="Charlotte de mango y coco, tonos suaves amarillos" loading="lazy" decoding="async" /></figure>
+        <figure class="galeria__item reveal reveal-delay-1"><img src="assets/images/galeria-maracuya.webp" alt="Charlotte de maracuyá con chocolate blanco" loading="lazy" decoding="async" /></figure>
+        <figure class="galeria__item reveal reveal-delay-2"><img src="assets/images/galeria-higos.webp" alt="Charlotte de mascarpone e higos" loading="lazy" decoding="async" /></figure>
+        <figure class="galeria__item reveal reveal-delay-3"><img src="assets/images/galeria-pera.webp" alt="Charlotte de pera y vainilla" loading="lazy" decoding="async" /></figure>
       </div>
     </div>
   </section>
@@ -529,6 +530,16 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+
+  <!-- Navegación rápida vertical (subir / bajar) -->
+  <nav class="scroll-nav" aria-label="Navegación rápida">
+    <button type="button" class="scroll-nav__btn scroll-nav__btn--up" id="scrollUp" aria-label="Subir a la sección anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button type="button" class="scroll-nav__btn scroll-nav__btn--down" id="scrollDown" aria-label="Bajar a la sección siguiente">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
 
   <!-- Lightbox de la galería de sabores -->
   <div class="galeria__lightbox" id="galeriaLightbox" role="dialog" aria-modal="true" aria-label="Galería de sabores">

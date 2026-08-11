@@ -43,7 +43,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="../css/estilos.css" />
   <link rel="stylesheet" href="../css/producto.css" />
 </head>
@@ -101,22 +102,22 @@
         <button class="producto__thumb is-active" role="tab" aria-selected="true"
                 data-img="../assets/images/productos/frutos-rojos-portada.webp"
                 data-alt="Charlotte de Frutos Rojos con moras y arándanos">
-          <img src="../assets/images/productos/frutos-rojos-1.webp" alt="Vista superior" loading="lazy" />
+          <img src="../assets/images/productos/frutos-rojos-1.webp" alt="Vista superior" loading="lazy" decoding="async" />
         </button>
         <button class="producto__thumb" role="tab" aria-selected="false"
                 data-img="../assets/images/productos/frutos-rojos-2.webp"
                 data-alt="Charlotte de Frutos Rojos, vista inferior">
-          <img src="../assets/images/productos/frutos-rojos-2.webp" alt="Vista inferior" loading="lazy" />
+          <img src="../assets/images/productos/frutos-rojos-2.webp" alt="Vista inferior" loading="lazy" decoding="async" />
         </button>
         <button class="producto__thumb" role="tab" aria-selected="false"
                 data-img="../assets/images/productos/frutos-rojos-3.webp"
                 data-alt="Charlotte de Frutos Rojos, detalle del centro">
-          <img src="../assets/images/productos/frutos-rojos-3.webp" alt="Detalle del centro" loading="lazy" />
+          <img src="../assets/images/productos/frutos-rojos-3.webp" alt="Detalle del centro" loading="lazy" decoding="async" />
         </button>
         <button class="producto__thumb" role="tab" aria-selected="false"
                 data-img="../assets/images/productos/frutos-rojos-closeup.webp"
                 data-alt="Charlotte de Frutos Rojos, textura del mousse en close-up">
-          <img src="../assets/images/productos/frutos-rojos-closeup.webp" alt="Close-up de textura" loading="lazy" />
+          <img src="../assets/images/productos/frutos-rojos-closeup.webp" alt="Close-up de textura" loading="lazy" decoding="async" />
         </button>
       </div>
     </div>
