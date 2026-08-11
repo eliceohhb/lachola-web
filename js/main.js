@@ -102,6 +102,42 @@
     yearEl.innerHTML = yearEl.innerHTML.replace('2024', String(new Date().getFullYear()));
   }
 
+  /* ---------- Lightbox de la galería de sabores ---------- */
+  const galeriaItems = document.querySelectorAll('.galeria__item');
+  const lightbox = document.getElementById('galeriaLightbox');
+  const lightboxImg = document.getElementById('galeriaImg');
+  const lightboxCaption = document.getElementById('galeriaCaption');
+  const lightboxCerrar = document.getElementById('galeriaCerrar');
+
+  if (galeriaItems.length && lightbox) {
+    const abrirLightbox = function (src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      if (lightboxCaption) lightboxCaption.textContent = alt || '';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+    const cerrarLightbox = function () {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+
+    galeriaItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        const img = item.querySelector('img');
+        if (img) abrirLightbox(img.src, img.alt);
+      });
+    });
+
+    if (lightboxCerrar) lightboxCerrar.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) cerrarLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) cerrarLightbox();
+    });
+  }
+
   /* ---------- Revelar secciones al hacer scroll (sutil) ---------- */
   const revealEls = document.querySelectorAll('.reveal');
 

@@ -179,6 +179,8 @@
         </div>
       </div>
     </div>
+
+    <a href="#charlottes" class="hero__scroll" aria-label="Bajar a ver nuestras tortas"></a>
   </section>
 
   <!-- =========================================
@@ -385,7 +387,7 @@
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .7-5.3 4.8 1.6 6.9L12 17.8 5.7 21l1.6-6.9L2 9.2l7-.7L12 2z" fill="currentColor"/></svg>
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .7-5.3 4.8 1.6 6.9L12 17.8 5.7 21l1.6-6.9L2 9.2l7-.7L12 2z" fill="currentColor"/></svg>
                   </div>
-                  <span class="testimonio__autor">María Fernanda</span>
+                  <span class="testimonio__autor"><span class="testimonio__avatar" aria-hidden="true">M</span>María Fernanda</span>
                 </div>
               </div>
             </article>
@@ -402,7 +404,7 @@
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .7-5.3 4.8 1.6 6.9L12 17.8 5.7 21l1.6-6.9L2 9.2l7-.7L12 2z" fill="currentColor"/></svg>
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 .7-5.3 4.8 1.6 6.9L12 17.8 5.7 21l1.6-6.9L2 9.2l7-.7L12 2z" fill="currentColor"/></svg>
                   </div>
-                  <span class="testimonio__autor">Camila R.</span>
+                  <span class="testimonio__autor"><span class="testimonio__avatar" aria-hidden="true">C</span>Camila R.</span>
                 </div>
               </div>
             </article>
@@ -527,5 +529,12 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+
+  <!-- Lightbox de la galería de sabores -->
+  <div class="galeria__lightbox" id="galeriaLightbox" role="dialog" aria-modal="true" aria-label="Galería de sabores">
+    <button type="button" class="galeria__lightbox-cerrar" id="galeriaCerrar" aria-label="Cerrar galería">✕</button>
+    <img id="galeriaImg" src="" alt="" />
+    <span class="galeria__lightbox-caption" id="galeriaCaption"></span>
+  </div>
 </body>
 </html>
