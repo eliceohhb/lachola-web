@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#D85C78" />
+  <meta name="theme-color" content="#6E0E2C" />
   <meta name="description" content="La Chola · Pastelería Artesanal. Charlottes artesanales hechas con amor, ingredientes seleccionados y dedicación en cada detalle. Pedidos online vía WhatsApp en Osorno, Chile." />
   <meta name="author" content="La Chola Pastelería Artesanal" />
   <link rel="canonical" href="https://lachola.cl/" />
@@ -63,11 +63,11 @@
   }
   </script>
 
-  <!-- Tipografías: Cormorant Garamond (títulos) + Manrope (UI) -->
+  <!-- Tipografías: Cormorant Garamond (títulos) + Manrope (UI) + Great Vibes (script) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Great+Vibes&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
@@ -119,6 +119,11 @@
   <section class="hero" id="hero">
     <div class="ac ac--top-left ac--rosa" aria-hidden="true"></div>
     <div class="ac ac--bottom-right ac--durazno" aria-hidden="true"></div>
+    <div class="ac ac--mid-right ac--dorado" aria-hidden="true"></div>
+    <span class="deco deco--petalo deco--p1" aria-hidden="true">❀</span>
+    <span class="deco deco--petalo deco--p2" aria-hidden="true">❀</span>
+    <span class="deco deco--petalo deco--p3" aria-hidden="true">✿</span>
+    <span class="deco deco--brillo deco--b1" aria-hidden="true">✦</span>
     <div class="container hero__inner">
       <div class="hero__texto reveal">
         <span class="hero__etiqueta">
@@ -127,10 +132,10 @@
           <span class="hero__etiqueta-linea" aria-hidden="true"></span>
         </span>
         <h1 class="hero__titulo">
-          Tortas <span class="hero__titulo-acento">Charlotte</span><br />
-          hechas con amor,<br />
-          disfrutadas con los<br />
-          cinco sentidos
+          La <span class="hero__titulo-acento">Charlotte</span><br />
+          que <em class="hero__titulo-script">enamora</em><br />
+          a la primera<br />
+          probada
         </h1>
         <p class="hero__parrafo">
           Ingredientes seleccionados, recetas artesanales y dedicación en cada detalle.
@@ -191,7 +196,7 @@
     <div class="container">
       <header class="seccion__encabezado reveal">
         <span class="etiqueta-script">Nuestra especialidad</span>
-        <h2 class="seccion__titulo">Tortas Charlotte</h2>
+        <h2 class="seccion__titulo">Tortas <span class="script-acento">Charlotte</span></h2>
         <div class="divisor" aria-hidden="true">
           <span class="divisor__linea"></span>
           <svg class="divisor__adorno" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z" fill="currentColor"/></svg>
@@ -200,15 +205,16 @@
       </header>
 
       <div class="productos">
-        <article class="card reveal">
+        <article class="card card--frutilla reveal">
           <a href="productos/frutilla.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Frutilla">
             <div class="card__img">
               <img src="assets/images/charlotte-frutilla-catalogo.webp" alt="Charlotte de Frutilla" loading="lazy" decoding="async" />
+              <span class="card__badge">Frutilla</span>
             </div>
           </a>
           <div class="card__cuerpo">
             <a href="productos/frutilla.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Frutilla">
-              <h3 class="card__nombre">Charlotte de Frutilla</h3>
+              <h3 class="card__nombre">Charlotte de <span class="script-acento">Frutilla</span></h3>
               <p class="card__desc">Suave mousse de frutilla con bizcocho de vainilla.</p>
             </a>
             <div class="card__pie">
@@ -219,15 +225,16 @@
           </div>
         </article>
 
-        <article class="card reveal reveal-delay-1">
+        <article class="card card--chocolate reveal reveal-delay-1">
           <a href="productos/chocolate.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Chocolate">
             <div class="card__img">
               <img src="assets/images/charlotte-chocolate-catalogo.webp" alt="Charlotte de Chocolate" loading="lazy" decoding="async" />
+              <span class="card__badge">Chocolate</span>
             </div>
           </a>
           <div class="card__cuerpo">
             <a href="productos/chocolate.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Chocolate">
-              <h3 class="card__nombre">Charlotte de Chocolate</h3>
+              <h3 class="card__nombre">Charlotte de <span class="script-acento">Chocolate</span></h3>
               <p class="card__desc">Mousse de chocolate belga sobre bizcocho de cacao.</p>
             </a>
             <div class="card__pie">
@@ -238,15 +245,16 @@
           </div>
         </article>
 
-        <article class="card reveal reveal-delay-2">
+        <article class="card card--frutos-rojos reveal reveal-delay-2">
           <a href="productos/frutos-rojos.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Frutos Rojos">
             <div class="card__img">
               <img src="assets/images/charlotte-frutos-rojos-catalogo.webp" alt="Charlotte de Frutos Rojos" loading="lazy" decoding="async" />
+              <span class="card__badge">Frutos Rojos</span>
             </div>
           </a>
           <div class="card__cuerpo">
             <a href="productos/frutos-rojos.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Frutos Rojos">
-              <h3 class="card__nombre">Charlotte de Frutos Rojos</h3>
+              <h3 class="card__nombre">Charlotte de <span class="script-acento">Frutos Rojos</span></h3>
               <p class="card__desc">Mousse de frutos rojos con un toque de frambuesa.</p>
             </a>
             <div class="card__pie">
@@ -257,15 +265,16 @@
           </div>
         </article>
 
-        <article class="card reveal reveal-delay-3">
+        <article class="card card--durazno reveal reveal-delay-3">
           <a href="productos/durazno.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Durazno">
             <div class="card__img">
               <img src="assets/images/charlotte-durazno-catalogo.webp" alt="Charlotte de Durazno" loading="lazy" decoding="async" />
+              <span class="card__badge">Durazno</span>
             </div>
           </a>
           <div class="card__cuerpo">
             <a href="productos/durazno.html" class="card__enlace-producto" aria-label="Ver detalle de Charlotte de Durazno">
-              <h3 class="card__nombre">Charlotte de Durazno</h3>
+              <h3 class="card__nombre">Charlotte de <span class="script-acento">Durazno</span></h3>
               <p class="card__desc">Mousse de durazno con trozos de fruta natural.</p>
             </a>
             <div class="card__pie">
@@ -286,7 +295,7 @@
     <div class="container">
       <header class="seccion__encabezado reveal">
         <span class="etiqueta-script">La Chola</span>
-        <h2 class="seccion__titulo">¿Por qué elegir La Chola?</h2>
+        <h2 class="seccion__titulo">¿Por qué elegir <span class="script-acento">La Chola</span>?</h2>
         <p class="seccion__subtitulo">Detalles que marcan la diferencia en cada torta.</p>
       </header>
 
@@ -366,7 +375,7 @@
     <div class="container">
       <header class="seccion__encabezado reveal">
         <span class="etiqueta-script">Testimonios</span>
-        <h2 class="seccion__titulo">Historias que endulzan</h2>
+        <h2 class="seccion__titulo">Historias que <span class="script-acento">endulzan</span></h2>
       </header>
 
       <div class="carrusel reveal" id="carrusel">
@@ -425,8 +434,7 @@
   <section class="seccion galeria" id="galeria">
     <div class="container">
       <header class="seccion__encabezado reveal">
-        <span class="etiqueta-script">Galería</span>
-        <h2 class="seccion__titulo">Galería de Sabores</h2>
+        <h2 class="seccion__titulo">de <span class="script-acento">Sabores</span></h2>
       </header>
       <div class="galeria__grid">
         <figure class="galeria__item reveal"><img src="assets/images/galeria-mesa.webp" alt="Charlotte de mango y coco, tonos suaves amarillos" loading="lazy" decoding="async" /></figure>
@@ -471,7 +479,7 @@
     <div class="container footer__grid">
       <div class="footer__col footer__col--marca">
         <a href="#inicio" class="logo logo--footer" aria-label="La Chola, volver al inicio">
-          <img src="assets/logo/logo-header.webp" alt="Logo La Chola · Pastelería Artesanal" class="logo__img" width="264" height="360" />
+          <img src="assets/logo/logo-footer.webp" alt="Logo La Chola · Pastelería Artesanal" class="logo__img" width="264" height="360" />
         </a>
         <p class="footer__desc">Charlottes artesanales hechas con amor y los mejores ingredientes.</p>
         <div class="redes">
@@ -521,6 +529,11 @@
           <span class="pago">WebPay</span>
           <span class="pago">Transferencia</span>
         </div>
+        <a href="https://wa.me/56912345678?text=Hola%20La%20Chola%2C%20quiero%20hacer%20un%20pedido"
+           class="btn btn--wa footer__wa" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.3 8.3 0 1 1 7 4.1z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
       </div>
     </div>
     <div class="footer__bottom">
